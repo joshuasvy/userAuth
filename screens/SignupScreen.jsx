@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, StatusBar, TextInput, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
+import { View, Text, ImageBackground, StatusBar, TextInput, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { useState } from 'react';
 import styles from '../layout/SignupLayout';
@@ -11,38 +11,46 @@ const SignupScreen = ({navigation}) => {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   return (
-    <KeyboardAvoidingView style={styles.container}>
-      <StatusBar barStyle="dark-content" backgroundColor="white"/>
-        <Text style={styles.title}>Create an account</Text>
-        <View style={styles.emailInput}>
-          <TextInput style={styles.email}
-          placeholder='Email'
-          value={email}
-          onChangeText={setEmail}
-          keyboardType='email-address'/>
-        </View>
+    <ImageBackground style={styles.background}
+    source={require('../image/backgroundSignin.jpg')}>
+      <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent={true}/>
 
-        <View style={styles.passwordInput}>
-          <TextInput style={styles.password}
-          placeholder='Password'
-          secureTextEntry
-          onChangeText={setPassword}
-          value={password}/>  
-        </View>
+      <TouchableOpacity style={styles.backBtn}
+      onPress={() => navigation.goBack()}>
+        <Image style={styles.backImage}source={require('../image/back.png')}
+        onPress={() => navigation.goBack()}/>
+      </TouchableOpacity>
+    
+      <Text style={styles.title}>Create an account</Text>
+      <View style={styles.emailInput}>
+      <TextInput style={styles.email}
+      placeholder='Email'
+      value={email}
+      onChangeText={setEmail}
+      keyboardType='email-address'/>
+      </View>
 
-        <View style={styles.confirmPasswordInput}>
-          <TextInput style={styles.confirmPassword}
-          placeholder='Confirm Password'
-          secureTextEntry
-          onChangeText={setConfirmPassword}
-          value={confirmPassword}/>
-        </View>
+      <View style={styles.passwordInput}>
+        <TextInput style={styles.password}
+        placeholder='Password'
+        secureTextEntry
+        onChangeText={setPassword}
+        value={password}/>  
+      </View>
 
-        <TouchableOpacity style={styles.signUpBtn}
-        onPress={() => signUp(email, password, confirmPassword, navigation, setEmail, setPassword, setConfirmPassword)}>
-          <Text style={styles.signUptxt}>Sign up</Text>
-        </TouchableOpacity>
-    </KeyboardAvoidingView>
+      <View style={styles.confirmPasswordInput}>
+        <TextInput style={styles.confirmPassword}
+        placeholder='Confirm Password'
+        secureTextEntry
+        onChangeText={setConfirmPassword}
+        value={confirmPassword}/>
+      </View>
+
+      <TouchableOpacity style={styles.signUpBtn}
+      onPress={() => signUp(email, password, confirmPassword, navigation, setEmail, setPassword, setConfirmPassword)}>
+        <Text style={styles.signUptxt}>Sign up</Text>
+      </TouchableOpacity>
+    </ImageBackground>
   )
 }
 

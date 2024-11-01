@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View, StatusBar, KeyboardAvoidingView, TextInput, TouchableOpacity, Alert } from "react-native";
+import { Text, View, StatusBar, ImageBackground, TextInput, TouchableOpacity, Alert } from "react-native";
 import styles from "../layout/SigninLayout";
 import { signIn as signInFunction } from "../firebase/AuthFunction";
 
@@ -29,8 +29,9 @@ const SigninScreen = ({ navigation }) => {
   };
 
   return (
-    <KeyboardAvoidingView style={styles.container}>
-      <StatusBar barStyle="dark-content" backgroundColor="white" />
+    <ImageBackground style={styles.container}
+    source={require('../image/backgroundSignup.jpg')}>
+      <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent={true}/>
       <Text style={styles.title}>Sign in</Text>
       <View style={styles.emailInput}>
         
@@ -51,10 +52,18 @@ const SigninScreen = ({ navigation }) => {
           value={password}
         />
       </View>
-      <TouchableOpacity style={styles.signUpBtn} onPress={signIn}>
-        <Text style={styles.signUptxt}>Sign in</Text>
-      </TouchableOpacity>
-    </KeyboardAvoidingView>
+      <Text style={{fontSize: 14, color: 'white', marginLeft: 60, marginTop: 8}}>Forgot password?</Text>
+
+      <View style={styles.buttonView}>
+        <TouchableOpacity style={styles.button} onPress={signIn}>
+          <Text style={styles.buttonTxt}>Sign in</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Signup")}>
+          <Text style={styles.buttonTxt}>Sign up</Text>
+        </TouchableOpacity>
+      </View>
+    </ImageBackground>
   )
 }
 
