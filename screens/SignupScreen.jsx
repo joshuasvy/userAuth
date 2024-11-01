@@ -1,11 +1,48 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View, Text, SafeAreaView, StatusBar, TextInput, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { useState } from 'react';
+import styles from '../layout/SignupLayout';
+import { signUp } from '../firebase/AuthFunction';
 
-const SignupScreen = () => {
+const SignupScreen = ({navigation}) => {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
   return (
-    <View>
-      <Text>SignupScreen</Text>
-    </View>
+    <KeyboardAvoidingView style={styles.container}>
+      <StatusBar barStyle="dark-content" backgroundColor="white"/>
+        <Text style={styles.title}>Create an account</Text>
+        <View style={styles.emailInput}>
+          <TextInput style={styles.email}
+          placeholder='Email'
+          value={email}
+          onChangeText={setEmail}
+          keyboardType='email-address'/>
+        </View>
+
+        <View style={styles.passwordInput}>
+          <TextInput style={styles.password}
+          placeholder='Password'
+          secureTextEntry
+          onChangeText={setPassword}
+          value={password}/>  
+        </View>
+
+        <View style={styles.confirmPasswordInput}>
+          <TextInput style={styles.confirmPassword}
+          placeholder='Confirm Password'
+          secureTextEntry
+          onChangeText={setConfirmPassword}
+          value={confirmPassword}/>
+        </View>
+
+        <TouchableOpacity style={styles.signUpBtn}
+        onPress={() => signUp(email, password, confirmPassword, navigation, setEmail, setPassword, setConfirmPassword)}>
+          <Text style={styles.signUptxt}>Sign up</Text>
+        </TouchableOpacity>
+    </KeyboardAvoidingView>
   )
 }
 
