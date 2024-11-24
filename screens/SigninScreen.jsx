@@ -3,6 +3,7 @@ import { Text, View, StatusBar, ImageBackground, TextInput, TouchableOpacity, Al
 import styles from "../layout/SigninLayout";
 import { signIn as signInFunction } from "../firebase/AuthFunction";
 
+
 const SigninScreen = ({ navigation }) => {
 
   const [email, setEmail] = useState("");

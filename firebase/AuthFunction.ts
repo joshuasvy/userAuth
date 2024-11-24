@@ -53,7 +53,7 @@ export const signIn = async (
     navigation: any ) => {
     try {
       const userInfo = await signInWithEmailAndPassword(auth, email, password);
-      Alert.alert("Success", "Welcome to Activity 3");
+      Alert.alert("Success", "Welcome to our Activity 4");
       navigation.navigate("Dashboard");
       return userInfo.user;
     } catch (error) {
@@ -73,4 +73,5 @@ export const signIn = async (
       }
       throw error;
     }
-  };
+};
+

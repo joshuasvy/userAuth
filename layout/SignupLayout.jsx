@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     },
       emailInput: {
         width: 280,
-        height: 48,
+        height: 60,
         borderWidth: 1,
         borderColor: 'white',
         backgroundColor: 'white',
@@ -35,12 +35,12 @@ const styles = StyleSheet.create({
         padding: 10,
     },
     email: {
-        fontSize: 15,
+        fontSize: 14,
         color: 'black',
     },
     passwordInput: {
         width: 280,
-        height: 48,
+        height: 60,
         borderWidth: 1,
         borderColor: 'white',
         backgroundColor: 'white',
@@ -51,12 +51,12 @@ const styles = StyleSheet.create({
         marginTop: 13,
     },
     password: {
-        fontSize: 15,
+        fontSize: 14,
         color: 'black',
     },
     confirmPasswordInput: {
         width: 280,
-        height: 48,
+        height: 60,
         borderWidth: 1,
         borderColor: 'white',
         backgroundColor: 'white',
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
         marginTop: 13,
     },
     confirmPassword: {
-        fontSize: 15,
+        fontSize: 14,
         color: 'black',
     },
     signUpBtn: {
