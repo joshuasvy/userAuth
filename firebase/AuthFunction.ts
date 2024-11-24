@@ -2,6 +2,8 @@ import { auth } from "../firebaseConfig";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { Alert } from "react-native";
 
+
+// Sign up function and conditions
 export const signUp = async (
     email: string,
     password: string,
@@ -47,6 +49,8 @@ export const signUp = async (
         }
     }
 };
+
+// Sign in function and conditions
 export const signIn = async (
     email: string,
     password: string,
@@ -74,4 +78,3 @@ export const signIn = async (
       throw error;
     }
 };
-
