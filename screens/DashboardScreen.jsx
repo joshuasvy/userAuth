@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, StatusBar, TouchableOpacity, Image, ImageBackground, ScrollView, Touchable } from 'react-native';
+import { View, Text, StatusBar, TouchableOpacity, ImageBackground } from 'react-native';
 import { useState, useEffect } from 'react';
 import React from 'react';
 import styles from '../layout/DashboardLayout';
